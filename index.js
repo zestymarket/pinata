@@ -22,12 +22,11 @@ var corsOption = {
   optionsSuccessStatus: 200
 }
 
-app.get('/', (req, res) => {
+app.get('/', cors(corsOption), (_, res) => {
   res.send("Welcome to Zesty Market's pinning gateway! Add pins here");
 });
 
-app.post('/api/pinFileToIPFS', upload.single("file"), (req, res) => {
-  console.log(req)
+app.post('/api/pinFileToIPFS', cors(corsOption), upload.single("file"), (req, res) => {
   const url = `https://api.pinata.cloud/pinning/pinFileToIPFS`;
 
   var path = fsTemp.writeFileSync(req.file.buffer);
@@ -53,8 +52,7 @@ app.post('/api/pinFileToIPFS', upload.single("file"), (req, res) => {
     });
 });
 
-app.post('/api/pinJSONToIPFS', (req, res) => {
-  console.log(req)
+app.post('/api/pinJSONToIPFS', cors(corsOption), (req, res) => {
   const url = `https://api.pinata.cloud/pinning/pinJSONToIPFS`;
 
   return axios
