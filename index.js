@@ -18,7 +18,7 @@ app.use(express.json());
 const upload = multer();
 
 var corsOption = {
-  origin: './zesty\.market$/',
+  origin: '.*\.zesty\.market$/',
   optionsSuccessStatus: 200
 }
 
