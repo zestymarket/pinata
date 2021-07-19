@@ -18,8 +18,8 @@ app.use(express.json());
 const upload = multer();
 
 var corsOption = {
-  origin: 'https://app.zesty.market',
-  optionsSuccessStatus: 200
+  // origin: 'https://app.zesty.market',
+  // optionsSuccessStatus: 200
 }
 
 app.get('/', cors(corsOption), (_, res) => {
